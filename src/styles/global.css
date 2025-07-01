@@ -1,0 +1,174 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root ::-webkit-scrollbar {
+  width: 8px;
+  background-color: transparent;
+}
+
+:root ::-webkit-scrollbar-thumb {
+  background-color: #505050;
+  cursor: pointer;
+}
+
+:root {
+  --background-color: #ffffff;
+  --text-color: #404040;
+  --heading-color: #151515;
+  --border-color: #cacaca;
+  --popup-bg: #fafafa;
+  --link-color: #0078d7;
+  font-family: "open sans";
+}
+
+:root.dark {
+  --background-color: #1e1e1e;
+  --text-color: #dadada;
+  --heading-color: #f0f0f0;
+  --border-color: #505050;
+  --popup-bg: #1e1e1e;
+  --link-color: #3b9eff;
+}
+
+html,
+body {
+  scroll-behavior: smooth;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: "open sans";
+  font-size: 16.25px;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+.block {
+  max-width: 62rem;
+  min-height: 100vh;
+  padding: 1.5rem;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+  color: var(--heading-color);
+  margin-top: -0.3rem;
+  margin-bottom: 0.7rem;
+}
+
+h2 {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: var(--heading-color);
+}
+
+h3 {
+  font-size: 1.05rem;
+  font-weight: bold;
+  color: var(--heading-color);
+}
+
+strong {
+  color: var(--heading-color);
+}
+
+em {
+  font-style: italic;
+}
+
+a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+ol,
+ul {
+  padding-left: 1.5rem;
+  line-height: 1.6rem;
+  list-style-type: disc;
+}
+
+ol.sm,
+ul.sm {
+  padding-left: 1.15rem;
+  margin-block: 0.7rem;
+  line-height: normal;
+  list-style-type: "- ";
+}
+
+ol {
+  list-style-type: decimal;
+}
+
+li::marker,
+ol::marker {
+  font-style: italic;
+  font-weight: bold;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  margin-block: 1rem;
+}
+
+code {
+  font-family: monospace;
+  background-color: #303030;
+  border: solid rgba(0, 0, 0, 0.25) 1px;
+  padding: 0.25rem 0.3rem 0.1rem;
+}
+
+.dark code {
+  background-color: #404040;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+blockquote {
+  margin-block: 1rem;
+  padding: 0.5rem 0.8rem;
+  border-left: 4.5px solid #4caf50;
+  background-color: #353535;
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  margin-block: 1rem;
+  background: var(--border-color);
+}
+
+hr.sm {
+  border: 0;
+  height: 1px;
+  background: var(--border-color);
+  margin-block: 0.5rem;
+}
+
+.popup {
+  position: fixed;
+  bottom: 0.75rem;
+  right: 0.75rem;
+  background-color: var(--popup-bg);
+  border: 1px solid var(--border-color);
+  padding: 0.5rem;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
