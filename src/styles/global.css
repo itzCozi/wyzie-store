@@ -8,27 +8,20 @@
 }
 
 :root ::-webkit-scrollbar-thumb {
-  background-color: #505050;
+  background-color: theme("colors.primary.400");
   cursor: pointer;
 }
 
 :root {
-  --background-color: #ffffff;
-  --text-color: #404040;
-  --heading-color: #151515;
-  --border-color: #cacaca;
-  --popup-bg: #fafafa;
-  --link-color: #0078d7;
+  --background-color: white;
+  --text-color: theme("colors.type.primary");
+  --heading-color: theme("colors.type.emphasized");
+  --border-color: theme("colors.primary.200");
+  --popup-bg: theme("colors.primary.50");
+  --link-color: theme("colors.primary.600");
+  --dimmed-color: theme("colors.primary.400");
+  --dark-color: theme("colors.primary.700");
   font-family: "open sans";
-}
-
-:root.dark {
-  --background-color: #1e1e1e;
-  --text-color: #dadada;
-  --heading-color: #f0f0f0;
-  --border-color: #505050;
-  --popup-bg: #1e1e1e;
-  --link-color: #3b9eff;
 }
 
 html,
@@ -120,21 +113,18 @@ img {
 
 code {
   font-family: monospace;
-  background-color: #303030;
-  border: solid rgba(0, 0, 0, 0.25) 1px;
+  background-color: theme("colors.primary.100");
+  border: solid theme("colors.primary.200") 1px;
+  color: theme("colors.type.dark");
   padding: 0.25rem 0.3rem 0.1rem;
-}
-
-.dark code {
-  background-color: #404040;
-  border-color: rgba(255, 255, 255, 0.2);
 }
 
 blockquote {
   margin-block: 1rem;
   padding: 0.5rem 0.8rem;
-  border-left: 4.5px solid #4caf50;
-  background-color: #353535;
+  border-left: 4.5px solid theme("colors.primary.600");
+  background-color: theme("colors.primary.50");
+  color: theme("colors.type.dimmed");
 }
 
 hr {
@@ -155,11 +145,12 @@ hr.sm {
   position: fixed;
   bottom: 0.75rem;
   right: 0.75rem;
-  background-color: var(--popup-bg);
-  border: 1px solid var(--border-color);
+  background-color: theme("colors.primary.50");
+  border: 1px solid theme("colors.primary.200");
   padding: 0.5rem;
   z-index: 1000;
   animation: fadeIn 0.3s ease-in-out;
+  color: theme("colors.type.primary");
 }
 
 @keyframes fadeIn {
@@ -171,4 +162,12 @@ hr.sm {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+.text-dimmed {
+  color: theme("colors.primary.400");
+}
+
+.text-dark {
+  color: theme("colors.primary.700");
 }
