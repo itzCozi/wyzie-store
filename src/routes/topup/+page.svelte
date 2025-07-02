@@ -17,6 +17,12 @@
   let btcEquivalent = null;
   let isFetchingBtc = false;
 
+  // Add interval variables for button holding
+  let buttonHoldInterval;
+  let buttonHoldTimeout;
+  const initialDelay = 500; // ms before rapid increment/decrement starts
+  const intervalSpeed = 100; // ms between increment/decrement when holding
+
   const footerLinks = [
     { url: "mailto:dev@wyzie.ru", text: "Contact", alt: "Contact", title: "Contact us" },
     {
@@ -36,6 +42,11 @@
   onMount(() => {
     // Fetch Bitcoin price
     fetchBitcoinPrice();
+
+    // Clean up any intervals on component destruction
+    return () => {
+      clearButtonHold();
+    };
   });
 
   async function fetchBitcoinPrice() {
@@ -72,8 +83,33 @@
   }
 
   function increaseQuantity() {
+    // Optional: You could add an upper limit here if needed
+    // e.g., if (quantity < 100) {
     quantity += 1;
     updateTotalPrice();
+  }
+
+  // Start button hold action
+  function startButtonHold(action) {
+    // Clear any existing intervals/timeouts
+    clearButtonHold();
+
+    // Execute the action once immediately
+    action();
+
+    // Set timeout for when to start rapid changes
+    buttonHoldTimeout = setTimeout(() => {
+      // Start interval for rapid changes
+      buttonHoldInterval = setInterval(action, intervalSpeed);
+    }, initialDelay);
+  }
+
+  // Clear intervals and timeouts
+  function clearButtonHold() {
+    if (buttonHoldInterval) clearInterval(buttonHoldInterval);
+    if (buttonHoldTimeout) clearTimeout(buttonHoldTimeout);
+    buttonHoldInterval = null;
+    buttonHoldTimeout = null;
   }
 
   function updateTotalPrice() {
@@ -212,7 +248,11 @@
               <p class="font-xl font-semibold mb-2">Choose Quantity:</p>
               <div class="flex items-center h-12">
                 <button
-                  on:click={decreaseQuantity}
+                  on:mousedown={() => startButtonHold(decreaseQuantity)}
+                  on:mouseup={clearButtonHold}
+                  on:mouseleave={clearButtonHold}
+                  on:touchstart={() => startButtonHold(decreaseQuantity)}
+                  on:touchend={clearButtonHold}
                   class="bg-border-200 hover:bg-border-300 rounded-l flex items-center justify-center w-12 h-12"
                   disabled={quantity <= 1}>
                   <Minus class="h-6 w-6" />
@@ -222,7 +262,11 @@
                   <span class="font-medium">{(quantity * 5000).toLocaleString()} requests</span>
                 </div>
                 <button
-                  on:click={increaseQuantity}
+                  on:mousedown={() => startButtonHold(increaseQuantity)}
+                  on:mouseup={clearButtonHold}
+                  on:mouseleave={clearButtonHold}
+                  on:touchstart={() => startButtonHold(increaseQuantity)}
+                  on:touchend={clearButtonHold}
                   class="bg-border-200 hover:bg-border-300 rounded-r flex items-center justify-center w-12 h-12">
                   <Plus class="h-6 w-6" />
                 </button>
