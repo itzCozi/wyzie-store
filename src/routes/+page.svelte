@@ -7,8 +7,7 @@
   import Footer from "@/components/Footer.svelte";
 
   function redirectToPayment() {
-    // Placeholder for payment redirect
-    alert("Redirecting to payment processor for the Paid Plan...");
+    window.location.href = '/checkout';
   }
 
   const footerLinks = [
