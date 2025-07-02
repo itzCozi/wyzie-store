@@ -29,9 +29,6 @@
           <h2 class="text-2xl font-bold mb-2">Free Plan</h2>
           <p class="text-type-dimmed">Basic access for small projects</p>
         </div>
-        <div class="mb-6">
-          <p class="text-3xl font-bold mb-1">$0<span class="text-base font-normal">/month</span></p>
-        </div>
         <div class="flex-grow mb-6">
           <ul class="space-y-3">
             <li class="flex items-start">
@@ -40,7 +37,7 @@
             </li>
             <li class="flex items-start">
               <CircleCheckBig class="h-5 w-5 text-success-500 mr-2 flex-shrink-0" />
-              <span>No API key required</span>
+              <span>No API token required</span>
             </li>
             <li class="flex items-start">
               <CircleMinus class="h-5 w-5 text-error-500 mr-2 flex-shrink-0" />
@@ -61,18 +58,19 @@
           <p class="text-type-dimmed">Unlimited access for serious users</p>
         </div>
         <div class="mb-6">
-          <p class="text-3xl font-bold mb-1">$5<span class="text-base font-normal">/month</span></p>
-          <p class="text-sm text-type-dimmed">$0.35 per 5K requests over limit</p>
+          <p class="text-3xl font-bold mb-1">
+            $8<span class="text-sm font-normal">/One Time</span>
+          </p>
         </div>
         <div class="flex-grow mb-6">
           <ul class="space-y-3">
             <li class="flex items-start">
               <CircleCheckBig class="h-5 w-5 text-success-500 mr-2 flex-shrink-0" />
-              <span>10,000 requests per month included</span>
+              <span>10,000 requests included</span>
             </li>
             <li class="flex items-start">
               <CircleCheckBig class="h-5 w-5 text-success-500 mr-2 flex-shrink-0" />
-              <span>Dedicated API token</span>
+              <span>$0.35 per 5K requests over limit</span>
             </li>
             <li class="flex items-start">
               <CircleCheckBig class="h-5 w-5 text-success-500 mr-2 flex-shrink-0" />
@@ -94,6 +92,7 @@
         <li>Complete payment through NOWPayments</li>
         <li>Receive your API token instantly</li>
         <li>Start making API requests for subtitles</li>
+        <li>Top up your token when needed!</li>
       </ol>
       <div class="mt-5">
         <h3 class="text-lg font-semibold mb-2">API Usage Example</h3>
@@ -107,24 +106,36 @@
       <h2 class="text-2xl font-bold mb-5">Frequently Asked Questions</h2>
       <div class="space-y-4">
         <div class="border-b pb-4 border-border-200">
-          <h3 class="text-lg font-normal mb-2">What happens if I exceed my monthly limit?</h3>
+          <h3 class="text-lg font-normal mb-2">Will I be notified when my token is running out?</h3>
           <p>
-            On the Paid plan, you'll be charged $0.50 for every additional 5,000 requests. On the
-            Free plan, you'll need to wait until the next day once you hit your limit.
+            Yes, you'll receive an automated email notification when you reach 80% of your request
+            limit. The email includes a convenient top-up link to ensure uninterrupted API access.
           </p>
         </div>
         <div class="border-b pb-4 border-border-200">
-          <h3 class="text-lg font-normal mb-2">How do I get my API token?</h3>
+          <h3 class="text-lg font-normal mb-2">What happens if I exceed my limit?</h3>
           <p>
-            After subscribing to the Paid plan, your API token will be shown to you immediately
-            after payment confirmation.
+            On the Paid plan, you will need to top up your account with $0.35 for each additional 5K
+            requests. On the Free plan, you'll need to wait until the next day once you hit your
+            limit.
           </p>
         </div>
         <div class="border-b pb-4 border-border-200">
-          <h3 class="text-lg font-normal mb-2">Can I cancel my subscription anytime?</h3>
+          <h3 class="text-lg font-normal mb-2">How can I reset my API token?</h3>
           <p>
-            You can cancel your subscription at any time. Your API access will remain active until
-            the end of your billing cycle if you haven't exceeded your 10k request limit.
+            If you need to reset your API token, please contact us via email or on Discord. We charge a small fee of $5 for this to cover the costs of generating a new token.
+          </p>
+        </div>
+        <div class="border-b pb-4 border-border-200">
+          <h3 class="text-lg font-normal mb-2">How do I track my usage?</h3>
+          <p>
+            Once you have an API token, you can check your remaining requests through our <a href="https://sub.wyzie.ru/dashboard" alt="Dashboard" title="Toolset Homepage">dashboard</a>.
+          </p>
+        </div>
+        <div class="border-b pb-4 border-border-200">
+          <h3 class="text-lg font-normal mb-2">Do you offer refunds?</h3>
+          <p>
+            Since our service is a digital product with immediate access, we typically don't offer refunds. However, if you encounter significant issues, please contact our support team.
           </p>
         </div>
       </div>
@@ -132,9 +143,9 @@
 
     <footer class="text-center text-sm py-8">
       <div class="flex justify-center space-x-4 mb-4">
-        <a href="mailto:dev@wyzie.ru">Contact</a>
-        <a href="https://docs.wyzie.ru">Documentation</a>
-        <a href="https://discord.com/invite/2mxraHBVtB">Discord</a>
+        <a href="mailto:dev@wyzie.ru" alt="Contact" title="Contact us">Contact</a>
+        <a href="https://docs.wyzie.ru" alt="Documentation" title="Documentation">Documentation</a>
+        <a href="https://discord.com/invite/2mxraHBVtB" alt="Documentation" title="Documentation">Discord</a>
       </div>
     </footer>
   </div>
