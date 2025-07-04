@@ -99,7 +99,7 @@
           <p class="mb-6">{errorMessage}</p>
           <a
             href="mailto:dev@wyzie.ru"
-            class="bg-primary-700 hover:bg-primary-800 text-white py-2 px-6 rounded-md">
+            class="bg-primary-500 hover:bg-primary-600 text-white py-2 px-6 rounded transition-colors duration-200">
             Contact Support
           </a>
         </div>
@@ -132,12 +132,11 @@
         <SectionHeader title="Getting Started" />
         <ol class="list-decimal ml-5 space-y-3 mb-6">
           <li>Include your API token in the Authorization header of all requests</li>
-          <li>You have 10,000 requests included with your subscription</li>
-          <li>Additional requests are charged at $0.40 per 5,000 requests</li>
+          <li>You have 50,000 requests included with your subscription</li>
+          <li>Additional requests are charged at $0.35 per 5,000 requests</li>
           <li>
             Check your usage in the <a
-              href="https://sub.wyzie.ru/dashboard"
-              class="text-primary-700 underline">dashboard</a>
+              href="https://sub.wyzie.ru/dashboard">dashboard</a>
           </li>
         </ol>
 
@@ -146,7 +145,7 @@
 
         <div class="mt-8 text-center">
           <button
-            class="bg-primary-700 hover:bg-primary-800 text-white py-2 px-6 rounded transition-colors duration-200"
+            class="bg-primary-500 hover:bg-primary-600 text-white py-2 px-6 rounded transition-colors duration-200"
             on:click={() => (window.location.href = "https://docs.wyzie.ru")}>
             View Full API Documentation
           </button>

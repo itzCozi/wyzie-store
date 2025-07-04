@@ -3,7 +3,7 @@
   import { browser } from '$app/environment';
   import PaymentForm from '@/components/checkout/PaymentForm.svelte';
   import PaymentDetails from '@/components/checkout/PaymentDetails.svelte';
-  
+
   let loading = false;
   let error = '';
   let paymentData = null;
@@ -12,7 +12,7 @@
   async function createPayment(selectedCurrency, adjustedPrice = 8) {
     loading = true;
     error = '';
-    
+
     try {
       const response = await fetch('https://api.nowpayments.io/v1/payment', {
         method: 'POST',
@@ -25,13 +25,13 @@
           price_currency: 'usd',
           pay_currency: selectedCurrency,
           order_id: `wyzie-${Date.now()}`,
-          order_description: 'Wyzie Subs API Access - 10,000 requests + priority support',
+          order_description: 'Wyzie Subs API Access - 50,000 requests + priority support',
           ipn_callback_url: window.location.origin + '/api/payment-callback',
           success_url: window.location.origin + '/paid',
           cancel_url: window.location.origin + '/checkout'
         })
       });
-      
+
       if (!response.ok) {
         const errorData = await response.json().catch(() => ({}));
         if (errorData.message && errorData.message.includes('less than minimal')) {
@@ -39,7 +39,7 @@
         }
         throw new Error(errorData.message || `Payment creation failed: ${response.status}`);
       }
-      
+
       paymentData = await response.json();
     } catch (err) {
       error = err.message || 'An unexpected error occurred';
@@ -48,7 +48,7 @@
       loading = false;
     }
   }
-  
+
   function goBack() {
     window.history.back();
   }
@@ -63,7 +63,7 @@
   <div class="max-w-4xl mx-auto px-4">
     <!-- Header -->
     <div class="text-center mb-8">
-      <button 
+      <button
         on:click={goBack}
         class="inline-flex items-center text-gray-600 hover:text-gray-800 mb-4 transition-colors"
       >
@@ -75,12 +75,12 @@
       <h1 class="text-4xl font-bold text-gray-900 mb-2">Secure Checkout</h1>
       <p class="text-gray-600">Complete your purchase with cryptocurrency</p>
     </div>
-    
+
     <!-- Main Content -->
     <div class="max-w-2xl mx-auto">
       <div class="bg-white rounded-2xl shadow-xl p-8">
         {#if !paymentData}
-          <PaymentForm 
+          <PaymentForm
             onPaymentCreate={createPayment}
             {loading}
             {error}
@@ -89,7 +89,7 @@
           <PaymentDetails {paymentData} />
         {/if}
       </div>
-      
+
       <!-- Trust Indicators -->
       <div class="mt-8 text-center">
         <div class="flex items-center justify-center space-x-8 text-sm text-gray-500">

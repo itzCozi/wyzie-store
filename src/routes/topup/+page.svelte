@@ -6,7 +6,7 @@
   import Footer from "@/components/Footer.svelte";
 
   let quantity = 1;
-  let totalPrice = 0.4;
+  let totalPrice = 0.35;
   let isProcessing = false;
   let success = false;
   let error = false;
@@ -113,7 +113,7 @@
   }
 
   function updateTotalPrice() {
-    totalPrice = parseFloat((quantity * 0.4).toFixed(2));
+    totalPrice = parseFloat((quantity * 0.35).toFixed(2));
     updateBtcEquivalent();
   }
 
@@ -185,7 +185,7 @@
           <div class="flex justify-center gap-4">
             <a
               href="https://sub.wyzie.ru/dashboard"
-              class="bg-primary-700 hover:bg-primary-800 text-white py-2 px-6 rounded-md">
+              class="bg-primary-500 hover:bg-primary-600 text-white py-2 px-6 rounded transition-colors duration-200">
               View Dashboard
             </a>
             <button
@@ -205,7 +205,7 @@
           <div class="flex justify-center gap-4">
             <a
               href="mailto:dev@wyzie.ru"
-              class="bg-primary-700 hover:bg-primary-800 text-white py-2 px-6 rounded-md">
+              class="bg-primary-500 hover:bg-primary-600 text-white py-2 px-6 rounded transition-colors duration-200">
               Contact Support
             </a>
             <button
@@ -313,7 +313,7 @@
           <div class="text-sm text-type-dimmed">
             <h3 class="font-medium mb-2">Notes:</h3>
             <ul class="list-disc pl-5 space-y-1">
-              <li>Additional requests are charged at $0.40 per 5,000 requests.</li>
+              <li>Additional requests are charged at $0.35 per 5,000 requests.</li>
               <li>We accept crypto payments <em>only</em>.</li>
               <li>Purchased requests are added to your existing balance.</li>
               <li>

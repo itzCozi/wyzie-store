@@ -1,33 +1,32 @@
 <script>
   import CurrencySelector from './CurrencySelector.svelte';
-  
+
   export let onPaymentCreate;
   export let loading = false;
   export let error = '';
-  
+
   let selectedCurrency = 'ltc';
   let minimumAmount = null;
   let adjustedPrice = 8;
   let showAdjustment = false;
-  
+
   const planDetails = {
     name: 'Paid Plan',
     basePrice: 8,
     currency: 'USD',
-    description: '10,000 API requests + $0.40 per 5K over limit',
+    description: '50,000 API requests + $0.35 per 5K over limit',
     features: [
-      '10,000 subtitle requests included',
-      '$0.40 per 5K requests over limit',
+      '50,000 subtitle requests included',
+      '$0.35 per 5K requests over limit',
       'Priority support',
-      'API token included',
       'Instant activation'
     ]
   };
-  
+
   function handleCurrencyChange(currency) {
     selectedCurrency = currency;
   }
-  
+
   async function handleMinAmountCheck(minUSD) {
     if (minUSD && minUSD > planDetails.basePrice) {
       adjustedPrice = minUSD;
@@ -37,7 +36,7 @@
       showAdjustment = false;
     }
   }
-  
+
   function handleSubmit() {
     onPaymentCreate(selectedCurrency, adjustedPrice);
   }
@@ -66,7 +65,7 @@
         {/if}
       </div>
     </div>
-    
+
     <div class="border-t border-primary-200 pt-4">
       <h4 class="font-semibold text-gray-800 mb-3">What's included:</h4>
       <ul class="space-y-2">
@@ -81,14 +80,14 @@
       </ul>
     </div>
   </div>
-  
+
   <!-- Currency Selection -->
-  <CurrencySelector 
-    {selectedCurrency} 
+  <CurrencySelector
+    {selectedCurrency}
     onCurrencyChange={handleCurrencyChange}
     onMinAmountCheck={handleMinAmountCheck}
   />
-  
+
   <!-- Error Display -->
   {#if error}
     <div class="bg-red-50 border border-red-200 rounded-lg p-4">
@@ -103,12 +102,12 @@
       </div>
     </div>
   {/if}
-  
+
   <!-- Payment Button -->
-  <button 
+  <button
     on:click={handleSubmit}
     disabled={loading}
-    class="w-full bg-gradient-to-r from-primary-600 to-blue-600 text-white py-4 px-6 rounded-xl hover:from-primary-700 hover:to-blue-700 disabled:opacity-50 disabled:cursor-not-allowed font-semibold text-lg transition-all duration-200 shadow-lg hover:shadow-xl"
+    class="w-full bg-primary-500 hover:bg-primary-600 text-white py-2 px-6 rounded transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed font-semibold text-lg"
   >
     {#if loading}
       <div class="flex items-center justify-center">
@@ -127,7 +126,7 @@
       </div>
     {/if}
   </button>
-  
+
   <div class="text-center text-sm text-gray-500">
     <div class="flex items-center justify-center mb-2">
       <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">

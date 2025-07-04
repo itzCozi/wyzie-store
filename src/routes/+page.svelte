@@ -27,14 +27,14 @@
   ];
 
   const freePlanFeatures = [
-    { text: "25 subtitle requests per day", included: true },
-    { text: "No API token required", included: true },
-    { text: "Requests over limit", included: false },
+    { text: "100 requests per day", included: true },
+    { text: "Public Discord with support forums", included: true },
+    { text: "Access to all subtitles", included: true },
   ];
 
   const paidPlanFeatures = [
-    { text: "10,000 requests included", included: true },
-    { text: "$0.40 per 5K requests over limit", included: true },
+    { text: "50,000 requests included", included: true },
+    { text: "$0.35 per 5K requests over limit", included: true },
     { text: "Priority support", included: true },
   ];
 
@@ -47,7 +47,7 @@
     {
       question: "What happens if I exceed my limit?",
       answer:
-        "On the Paid plan, you will need to top up your account with $0.40 for each additional 5K requests. On the Free plan, you'll need to wait until the next day once you hit your limit.",
+        "On the Paid plan, you will need to top up your account with $0.35 for each additional 5K requests. On the Free plan, you'll need to wait until the next day once you hit your limit.",
     },
     {
       question: "How can I reset my API token?",
